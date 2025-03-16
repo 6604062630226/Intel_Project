@@ -1,5 +1,5 @@
 # Intel_Project
-# โดย นาบธนธรณ์ เรืองต่อวงศ์ THANATHORN RUENGTORWONG
+# โดย นายธนธรณ์ เรืองต่อวงศ์ THANATHORN RUENGTORWONG
 # 6604062630226
 * งานที่สมบูรณ์อยู่โฟลเดอร์ IS_Project
 * dataset 2 ชุด สำหรับทั้ง 2 โปรเจคอยู่ใน IS_Project/doc
