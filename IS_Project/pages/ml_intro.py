@@ -95,19 +95,19 @@ st.write(""" The dataset is read from a CSV file (heart.csv), and the first few 
          """ )
 
 from PIL import Image as img
-st.image(img.open("images/df_head.png"))
+st.image(img.open("images/ml/df_head.png"))
 st.write("""Checking columns type:
         
         df.dtypes
        
         """)
-st.image(img.open("images/df_dtype1.png"))
+st.image(img.open("images/ml/df_dtype1.png"))
 st.write("""Checking Missing Values:
         
         df.isnull().sum()
           
          """)
-st.image(img.open("images/df_isnull1.png"))
+st.image(img.open("images/ml/df_isnull1.png"))
 st.write("""Columns with data type "object" (i.e., categorical data) are selected and converted to string type for consistency.
          
         string_col = df.select_dtypes(include="object").columns
@@ -118,8 +118,8 @@ st.write("""Columns with data type "object" (i.e., categorical data) are selecte
          """)
 st.write("and we check with df.dtypes and df.isnull().sum again.")
 
-st.image(img.open("images/df_dtype2.png"))
-st.image(img.open("images/df_isnull2.png"))
+st.image(img.open("images/ml/df_dtype2.png"))
+st.image(img.open("images/ml/df_isnull2.png"))
 
 st.code((""" 
          string_col=df.select_dtypes("string").columns.to_list()
@@ -135,7 +135,7 @@ st.write(""" The columns are separated into string_col (categorical) and num_col
 st.write("""and summarizing it with 
             ```py df.describe().T ```
          """)
-st.image(img.open("images/df_describe1.png"))
+st.image(img.open("images/ml/df_describe1.png"))
 st.write("""### One-Hot Encoding for Categorical Features
          
     columns_to_label_encode = ['ST_Slope', 'Sex']
@@ -158,8 +158,8 @@ st.write("""One-hot encoding is applied to categorical columns (in this case, al
        
 
 st.write(""" ### 📈Correlation Heatmap:
-         px.imshow(df.corr(), title="Correlation Plot of the Heat Failure Prediction")      """)
-st.image(img.open("images/corr_plot1.png"))
+         px.imshow(df.corr(), title="Correlation Plot of the Heart Failure Prediction")      """)
+st.image(img.open("images/ml/corr_plot1.png"))
 st.write("""A correlation plot is generated to visualize the correlation matrix between the features in the dataset. 
          This helps understand which features are correlated with each other.""")
 st.write(""" ### Data Preprocessing (Scaling)""")
@@ -174,8 +174,8 @@ st.code(("""scaler = RobustScaler()
          
          """), language="python")
 
-st.image(img.open("images/x_scaled.png"))
-st.image(img.open("images/y_scaled.png"))
+st.image(img.open("images/ml/x_scaled.png"))
+st.image(img.open("images/ml/y_scaled.png"))
 st.write("""The dataset is split into training and testing sets. The model will be trained on the training set and evaluated on the testing set.
          
          
@@ -219,7 +219,7 @@ st.write("and the classification report (precision, recall, F1-score) is printed
          
          
         
-st.image(img.open("images/forest_class_rep.png"))
+st.image(img.open("images/ml/forest_class_rep.png"))
 st.write(""" And followed with Support Vector.""")
 
 st.code(("""svm = SVC(kernel="linear", probability=True)
@@ -230,7 +230,7 @@ st.code(("""svm = SVC(kernel="linear", probability=True)
 st.write("""             and the classification report (precision, recall, F1-score) is printed.
          """)
 
-st.image(img.open("images/svm_class_rep.png"))
+st.image(img.open("images/ml/svm_class_rep.png"))
 st.write("I using Voting Classifier as Ensemble learning")
 st.code(("""
            ensemble_model = VotingClassifier(estimators=[('svm', svm), ('forest', forest)], voting='soft')
@@ -243,8 +243,9 @@ st.write("""             voting='soft' means the final prediction is based on th
                 The threshold is set to 0.5 for predicting the class, and the classification report is printed.
          
          """)
-st.image(img.open("images/ensemble_class_rep.png"))
+st.image(img.open("images/ml/ensemble_class_rep.png"))
 st.write("""The confusion matrix is printed, which shows the counts of true positives on top-left, true negatives on bottom-right, 
          false positives on bottom-left, and false negatives on top-right.""")
-st.image(img.open("images/confusion_matrix.png"))
+st.image(img.open("images/ml/confusion_matrix.png"))
 
+st.page_link("pages/ml_demo.py", label="try demo")
